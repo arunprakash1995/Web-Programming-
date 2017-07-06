@@ -1,0 +1,52 @@
+<!doctype html>
+<head>
+</head>
+<body>
+	<form action="comments.php" method="get">
+	<p>
+		<label> Name : </label>
+		<input type="text" name="username" />
+	</p>
+	<p>
+		<label> E-mail : </label>
+		<input type="email" name="email" />
+	</p>
+	<p>
+		<label> Website : </label>
+		<input type="url" name="website" />
+	</p>
+
+	<p>
+		<label> Comments : </label>
+		<textarea name="comments" rows="10" cols="30"></textarea>
+	</p>
+	<p>
+		<label> Gender : </label>
+		<input type="radio" name="gender" value="1" />Female
+		<input type="radio" name="gender" value="2" />Male
+	</p>
+	
+	<input type="submit">
+	</form>
+		
+	<?php
+
+		$name = $email = $gender = $comment = $website = "";
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  		$name = test_input($_POST["name"]);
+  		$email = test_input($_POST["email"]);
+ 		$website = test_input($_POST["website"]);
+  		$comment = test_input($_POST["comment"]);
+  		$gender = test_input($_POST["gender"]);
+		}
+
+		function test_input($data) {
+ 		$data = trim($data);
+  		$data = stripslashes($data);
+  		$data = htmlspecialchars($data);
+  		return $data;
+		}
+	?>
+</body>
+</html>

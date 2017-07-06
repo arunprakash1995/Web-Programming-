@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>	
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+<script>
+$(document).ready(function() {
+	$("#btnSubmit").click(function(){
+		$.ajax({
+    type: "GET",
+    url: "books.xml",
+    dataType: "xml",
+    success: parseXml
+	});
+
+function parseXml(xml) {
+$("table").append('<tr><th>Title</th><th>Author</th><th>Year</th><th>Price</th><th>Category</th></tr>');
+$(xml).find("book").each(function() {
+	var title=$(this).find("title").text();
+	var cat=$(this).attr('category');
+	var author=$(this).find("author").text();
+	var year=$(this).find("year").text();
+	var price=$(this).find("price").text();
+	var author = " ";
+	$(this).find("author").each(function(){
+		if(author == " "){
+			author = $(this).text();
+		}
+		else{
+			author = author + ", " + $(this).text() ;
+		}	
+	});
+	var final='<tr><td>'+title+'</td><td>'+author+'</td><td>'+year+'</td><td>'+price+'</td><td>'+cat+'</td></tr>'
+//find each instance of loc in xml file and wrap it in a link
+$("table").append(final);
+
+ });
+}
+});
+});
+</script>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}	
+</style>
+</head>
+<body>
+<div>
+<h1>Parse XML with jQuery and AJAX</h1>
+<p><input id = "btnSubmit" type="submit" value="Load Xml" /></p>
+<p><table id="books">
+	
+</table></p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script>	
+	$(document).ready(function(){
+    		$("form").submit(function(){
+			event.preventDefault();
+			$("#msg").html("");
+			var username= $('#Uname').val();
+			var password= $('#pass').val();
+			var phonenumber= $('#phone').val(); 
+			var n1 = username.length;
+		 	var n2 = password.length;
+			var res= isFinite(phonenumber);
+			var val= true;
+			$("#msg").addClass("red");
+			if(username == "" || password == "" || phonenumber == ""){
+				$("#msg").removeClass("green").addClass("red");
+				$("#msg").append("All Fields are Mandatory<br />");
+				val = false;
+			}
+			if(n1<6){
+				$("#msg").removeClass("green").addClass("red");
+				$("#msg").append("Username Should be atleast be 6 characters long<br />");
+				val = false;
+			}
+			if(n2<6){
+				$("#msg").removeClass("green").addClass("red");
+				$("#msg").append("Password Should be atleast be 6 characters long<br />");
+				val = false;
+			}
+			if(!res){
+				$("#msg").removeClass("green").addClass("red");
+				$("#msg").append("Phone Number is Invalid:Enter only numbers<br />");
+				val = false;
+			}
+			if(!val){
+				$("#msg").removeClass("green").addClass("red");
+				$("#msg").append("Failure<br />");
+			}
+			
+			if(val){
+				$("#msg").removeClass("red").addClass("green");
+				$("#msg").append("Success<br />");
+			}
+    		});
+	});
+
+	</script>
+
+	<style type="text/css">
+	.red
+	{
+		background-color:red;
+		color:white;
+	}
+	
+	.green
+	{
+		background-color:green;
+		color:white;
+	}
+	</style>
+</head>
+
+<body>
+
+	<form action="">
+ 		User Name : <br /><input type="text" name="name" id="Uname"><br />
+		Password  : <br /><input type="text" name="pass" id="pass"><br />
+		Phone No  : <br/><input type="text" name="phone" id="phone"><br />
+		<input type="submit" value="Submit" id="sub">
+		<input type="reset" value="Reset">
+		<div id="msg"> </div>
+	</form>
+	
+</body>
+</html>
+

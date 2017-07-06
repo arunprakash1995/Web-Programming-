@@ -1,0 +1,88 @@
+header{
+	background-color:black;
+	color:white;
+	border: 0px;
+	margin: 0cm;
+}
+a.a0 {
+	color: white;
+}
+a.a1{
+	color: Black;
+}
+#headerblock{
+	background-color:black;
+	color:white;
+	font-family: Lucida Sans Unicode, Helvetica, Arial, sans-serif;
+	font-size: 14pt;
+	padding: 0.5cm;
+}
+footer{
+	background-color: black;
+	color: white;
+	font-family: Lucida Sans Unicode, Helvetica, Arial, sans-serif;
+	font-align:center;
+	font-size: 12pt;
+}
+
+div.col-sm-2{
+	background-color: #E6E5E5;
+}
+
+#img{
+	width:150px;
+	height:150px;
+}
+
+#name{
+	color:black;
+	font-weight: bold;
+	font-family: Palatino Linotype;
+	font-size: 20pt;
+}
+
+p.greeting{
+	font-weight: bold;
+	color: grey;
+	font-family: Courier New;
+	font-size: 15pt;
+	font-style: italic;
+}
+#foottext{
+	background-color: black;
+	color: white;
+	font-family: Lucida Sans Unicode, Helvetica, Arial, sans-serif;
+	text-align:center;
+	font-size: 10pt;
+}
+h2.heading{
+	color:black;
+	font-weight: bold;
+	font-family: Palatino Linotype;
+}
+img.logo{
+	width:33px;
+	height:33px;
+}
+img.logo1{
+	width:37px;
+	height:37px;
+}
+#logo2{
+	width:100px;
+	height:50px;
+}
+#logo3{
+	width:80px;
+	height:18px;
+}
+p.leftcol{
+	font-weight: bold;
+	color:black;
+	font-size:12pt;
+}
+img.badges{
+	width:50px;
+	height:50px;
+}
+
